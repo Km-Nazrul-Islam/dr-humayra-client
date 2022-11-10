@@ -11,7 +11,7 @@ const router = createBrowserRouter([
         element: <Main></Main>,
         children: [
             {
-                path: '/home',
+                path: 'home',
                 element: <Home></Home>
             },
             {
@@ -25,7 +25,7 @@ const router = createBrowserRouter([
             {
                 path: '/checkout/:id',
                 element: <Checkout></Checkout>,
-                loader: ({params}) => fetch(`http://localhost:5000/services/${params.id}`)
+                loader: ({params}) => fetch(`https://dr-munni-server-site.vercel.app/services/${params.id}`)
             }
         ]
     }
