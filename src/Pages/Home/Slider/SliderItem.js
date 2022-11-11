@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './SliderItem.css'
 
 const SliderItem = ({slider}) => {
@@ -21,8 +22,8 @@ const SliderItem = ({slider}) => {
                 </p>
             </div>
             <div className="absolute flex justify-start transform -translate-y-1/2 left-48 right-5 top-3/4">
-                <button className="btn btn-primary mr-4">Services</button>
-                <button className="btn btn-outline btn-primary">Details</button>
+                <Link to="/services"><button className="btn btn-primary mr-4">Services</button></Link>
+                <Link to="/review"><button className="btn btn-outline btn-primary">All Review</button></Link>
             </div>
             <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
                 <a href={`#slide${prev}`} className="btn btn-circle">❮</a>

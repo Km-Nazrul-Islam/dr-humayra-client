@@ -40,17 +40,19 @@ const Details = () => {
     return (
         <div className='flex justify-between gap-8'>
             <div className='col-span-8 mt-4'>
-                <div>
-                    <h2 className='text-3xl text-red-500 font-bold text-center'>About Service Details</h2>
-                </div>
-                <div className='text-2xl font-semibold mb-8'>
-                    <div className='flex justify-evenly text-2xl font-semibold mb-8'>
-                        <h2 className='text-green-700'>Test Name: {title}</h2>
-                        <h3 className='text-yellow-700'>Test Fee: {fee}</h3>
+                <div className='border-2 border-pink-400 p-12 mb-4 rounded-xl'>
+                    <div>
+                        <h2 className='text-3xl text-red-500 font-bold text-center'>Details About This Service</h2>
                     </div>
-                    <div className='justify-center'>
-                        <img className='w-full h-auto mt-8 rounded-xl' src={img} alt="" />
-                        <p className='text-sm text-red-400 justify-start'><span className='text-xl text-red-500 font-semibold'>About This Test</span>: {description}</p>
+                    <div className='text-2xl font-semibold mb-8'>
+                        <div className='flex justify-evenly text-2xl font-semibold mb-8'>
+                            <h2 className='text-green-700 grid grid-cols-1'>Test Name: {title}</h2>
+                            <h3 className='text-yellow-700 grid grid-cols-1'>Test Fee: {fee}</h3>
+                        </div>
+                        <div className='justify-center'>
+                            <img className='w-full h-auto mt-8 rounded-xl' src={img} alt="" />
+                            <p className='text-sm text-red-400 justify-start mt-8'><span className='text-xl text-red-500 font-semibold'>About This Test</span>: {description}</p>
+                        </div>
                     </div>
                 </div>
                 <div>
