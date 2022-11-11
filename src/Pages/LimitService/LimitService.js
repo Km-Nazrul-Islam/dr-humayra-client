@@ -34,7 +34,7 @@ const LimitService = () => {
             </div>
             <div className='text-center'>
                 <Link to="/services">
-                    <button className="btn btn-primary w-72 mt-8">See All</button>
+                    <button className="btn btn-primary w-72 mt-8">All Services</button>
                 </Link>
             </div>
         </div>

@@ -55,8 +55,9 @@ const Details = () => {
                         </div>
                     </div>
                 </div>
-                <div>
-                    <form onSubmit={handlePlaceSeriouls}>
+                <div className='border-2 border-pink-500 rounded-xl my-8'>
+                    <h2 className='text-4xl text-red-400 font-bold text-center mt-4'>Place Your Serioul Number</h2>
+                    <form className='p-8' onSubmit={handlePlaceSeriouls}>
                         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8'>
                             <input name='firstName' type="text" placeholder="Type Your First Name" className="input input-bordered input-md w-full" />
 
@@ -68,48 +69,92 @@ const Details = () => {
                         </div>
                         <textarea name='message' className="textarea textarea-bordered h-24 w-full my-8" placeholder="Your Message"></textarea>
 
-                        <input className='btn' type="submit" value="Place Your Serioul Number" />
+                        <div className=''>
+                            <input className='btn btn-block mb-4' type="submit" value="Submit" />
+                            <input className='btn btn-block' type="submit" value="Reset" />
+                        </div>
                     </form>
                 </div>
             </div>
 
             <div className='col-span-4 mt-4'>
-                <h3 className='text-4xl text-pink-600 font-bold text-center mb-4'>Patient Review Table</h3>
-                <div className="overflow-x-auto">
-                    <table className="table w-full">
-                        {/* <!-- head --> */}
-                        <thead>
-                            <tr>
-                                <th></th>
-                                <th>Patient Name</th>
-                                <th>Deases Test</th>
-                                <th>Result</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {/* <!-- row 1 --> */}
-                            <tr>
-                                <th>1</th>
-                                <td>Cy Ganderton</td>
-                                <td>Pelvic Test</td>
-                                <td>Excelent !!</td>
-                            </tr>
-                            {/* <!-- row 2 --> */}
-                            <tr className="hover">
-                                <th>2</th>
-                                <td>Hart Hagerty</td>
-                                <td>Pap Test</td>
-                                <td>Good</td>
-                            </tr>
-                            {/* <!-- row 3 --> */}
-                            <tr>
-                                <th>3</th>
-                                <td>Brice Swyre</td>
-                                <td>Pregnancy testing</td>
-                                <td>100% Qualified</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <div>
+                    <h3 className='text-4xl text-pink-600 font-bold text-center mb-4'>Patient Review This Service</h3>
+                    <div className="overflow-x-auto">
+                        <table className="table w-full">
+                            {/* <!-- head --> */}
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>Patient Name</th>
+                                    <th>Deases Test</th>
+                                    <th>Result</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {/* <!-- row 1 --> */}
+                                <tr>
+                                    <th>1</th>
+                                    <td>Cy Ganderton</td>
+                                    <td>Pelvic Test</td>
+                                    <td>Excelent !!</td>
+                                </tr>
+                                {/* <!-- row 2 --> */}
+                                <tr className="hover">
+                                    <th>2</th>
+                                    <td>Hart Hagerty</td>
+                                    <td>Pap Test</td>
+                                    <td>Good</td>
+                                </tr>
+                                {/* <!-- row 3 --> */}
+                                <tr>
+                                    <th>3</th>
+                                    <td>Brice Swyre</td>
+                                    <td>Pregnancy testing</td>
+                                    <td>100% Qualified</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div className='mt-12'>
+                        <h2 className='text-3xl text-green-600 font-bold text-center my-4'>Give Review For This Service</h2>
+                        <div className="overflow-x-auto">
+                            <table className="table w-full">
+                                
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>Name</th>
+                                        <th>Job</th>
+                                        <th>Favorite Color</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    <tr>
+                                        <th>1</th>
+                                        <td>Cy Ganderton</td>
+                                        <td>Quality Control Specialist</td>
+                                        <td>Blue</td>
+                                    </tr>
+
+                                    <tr className="hover">
+                                        <th>2</th>
+                                        <td>Hart Hagerty</td>
+                                        <td>Desktop Support Technician</td>
+                                        <td>Purple</td>
+                                    </tr>
+
+                                    <tr>
+                                        <th>3</th>
+                                        <td>Brice Swyre</td>
+                                        <td>Tax Accountant</td>
+                                        <td>Red</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
