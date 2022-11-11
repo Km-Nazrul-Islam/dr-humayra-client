@@ -15,11 +15,11 @@ const Details = () => {
         const phone = form.phone.value;
         const message = form.message.value;
 
-        const serioul = {
+        const review = {
             service: _id,
             serviceName: title,
             fee,
-            customer: name,
+            patient: name,
             email,
             phone,
             message
@@ -30,7 +30,7 @@ const Details = () => {
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify(serioul)
+            body: JSON.stringify(review)
         })
         .then(res => res.json())
         .then(data => console.log(data))
@@ -56,7 +56,7 @@ const Details = () => {
                     </div>
                 </div>
                 <div className='border-2 border-pink-500 rounded-xl my-8'>
-                    <h2 className='text-4xl text-red-400 font-bold text-center mt-4'>Place Your Serioul Number</h2>
+                    <h2 className='text-4xl text-red-400 font-bold text-center mt-4'>Please Type Your Review</h2>
                     <form className='p-8' onSubmit={handlePlaceSeriouls}>
                         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8'>
                             <input name='firstName' type="text" placeholder="Type Your First Name" className="input input-bordered input-md w-full" />
@@ -115,45 +115,6 @@ const Details = () => {
                                 </tr>
                             </tbody>
                         </table>
-                    </div>
-                    <div className='mt-12'>
-                        <h2 className='text-3xl text-green-600 font-bold text-center my-4'>Give Review For This Service</h2>
-                        <div className="overflow-x-auto">
-                            <table className="table w-full">
-                                
-                                <thead>
-                                    <tr>
-                                        <th></th>
-                                        <th>Name</th>
-                                        <th>Job</th>
-                                        <th>Favorite Color</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-
-                                    <tr>
-                                        <th>1</th>
-                                        <td>Cy Ganderton</td>
-                                        <td>Quality Control Specialist</td>
-                                        <td>Blue</td>
-                                    </tr>
-
-                                    <tr className="hover">
-                                        <th>2</th>
-                                        <td>Hart Hagerty</td>
-                                        <td>Desktop Support Technician</td>
-                                        <td>Purple</td>
-                                    </tr>
-
-                                    <tr>
-                                        <th>3</th>
-                                        <td>Brice Swyre</td>
-                                        <td>Tax Accountant</td>
-                                        <td>Red</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
                     </div>
                 </div>
             </div>

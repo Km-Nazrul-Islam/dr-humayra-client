@@ -1,7 +1,9 @@
 import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
+import { PhotoProvider, PhotoView } from 'react-photo-view';
 import { Link } from 'react-router-dom';
+
 
 const LimitService = () => {
     const [services, setServices] = useState([])
@@ -18,10 +20,20 @@ const LimitService = () => {
 
                 {
                     services.map(service => <div className="border-2 border-amber-400 card w-96 bg-base-100 shadow-xl">
-                        <figure><img src={service.img} alt="Shoes" /></figure>
+                        <PhotoProvider>
+                            
+                                
+                                    <PhotoView src={service.img}>
+                                <figure><img src={service.img} key={services._id} alt="Shoes" /></figure>
+                                    </PhotoView>
+                                
+                            
+                        </PhotoProvider>
+                        
                         <div className="card-body">
                             <h2 className="card-title">{service.title}</h2>
                             <p>Fee: {service.fee}</p>
+                            <p>{service.description.slice(0, 100)}...</p>
                             <div className="card-actions justify-end">
                                 <Link to={`/details/${service._id}`}>
                                     <button className="btn btn-primary w-72">Details</button>

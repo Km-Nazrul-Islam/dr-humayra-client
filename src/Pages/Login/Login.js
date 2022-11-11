@@ -1,11 +1,12 @@
 import React from 'react';
 import { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import image from '../../assets/images/login/login.svg'
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 
 const Login = () => {
-    const {login} = useContext(AuthContext)
+    const { login, googleSign, setUser } = useContext(AuthContext)
+    const navigate = useNavigate();
 
     const handleLogin = event => {
         event.preventDefault();
@@ -16,10 +17,21 @@ const Login = () => {
          login(email, password)
          .then(result => {
             const user = result.user;
-            console.log(user);
+            navigate("/");
+             setUser(user);
             form.reset();
          })
          .catch(err => console.error(err))
+    }
+
+    const handleGoogleSignIn = () => {
+        googleSign()
+            .then(result => {
+                const user = result.user;
+                navigate("/");
+                setUser(user);
+            })
+            .catch(err => console.error(err))
     }
 
     return (
@@ -51,6 +63,9 @@ const Login = () => {
                         </div>
                     </form>
                     <p className='text-center mb-4'>Have A Account ? <Link className='text-yellow-600 font-bold' to="/signup">Sign Up</Link> </p>
+                    <div className="form-control mt-6 p-8">
+                        <button onClick={handleGoogleSignIn} className="btn btn-outline btn-warning">Login With Google</button>
+                    </div>
                 </div>
             </div>
         </div>

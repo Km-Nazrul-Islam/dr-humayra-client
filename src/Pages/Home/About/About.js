@@ -32,7 +32,7 @@ const About = () => {
                 </div>
             </div>
             <div className=''>
-                <h2 className='text-4xl text-rose-400 font-bold text-center mb-8'>Patient Satisfection</h2>
+                <h2 className='text-5xl text-blue-600 font-bold text-center mb-16'>About Patient Satisfection</h2>
                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-20'>
                     <div className="card card-compact w-96 bg-base-100 shadow-xl">
                         <figure><img src="https://i.ibb.co/4j2MfJR/pexels-andrea-piacquadio-3884103.jpg" alt="Shoes" /></figure>

@@ -53,7 +53,9 @@ const SignUp = () => {
                         </div>
                     </form>
                     <p className='text-center mb-4'>Already Have An Account ? <Link className='text-yellow-600 font-bold' to="/login">Please Login</Link> </p>
+                    
                 </div>
+                
             </div>
         </div>
     );
