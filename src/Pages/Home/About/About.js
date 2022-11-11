@@ -11,7 +11,6 @@ const About = () => {
                     <img src={myChember} alt="" className="absolute w-3/5 right-4 top-1/2 border-9 max-w-sm rounded-lg shadow-2xl" />
                 </div>
                 <div className='w-1/2'>
-                    <p className='text-2xl text-violet-600 font-bold'>About Me</p>
                     <h1 className="text-5xl font-bold my-4">Dr. Mahbuba Humayra</h1>
                     <h2 className="text-4xl font-bold">
                         Specialty - Junior Consultant</h2>

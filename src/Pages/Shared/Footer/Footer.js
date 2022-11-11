@@ -11,10 +11,10 @@ const Footer = () => {
             </div>
             <div>
                 <span className="footer-title">Services</span>
-                <a href="/" className="link link-hover">Branding</a>
-                <a href="/" className="link link-hover">Design</a>
-                <a href="/" className="link link-hover">Marketing</a>
-                <a href="/" className="link link-hover">Advertisement</a>
+                <a href="/" className="link link-hover">Pelvic Test</a>
+                <a href="/" className="link link-hover">Pap Test</a>
+                <a href="/" className="link link-hover">Sexually transmitted disease (STD)</a>
+                <a href="/" className="link link-hover">Pregnancy testing</a>
             </div>
             <div>
                 <span className="footer-title">Company</span>

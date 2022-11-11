@@ -1,13 +1,13 @@
 import React from 'react';
+import LimitService from '../../LimitService/LimitService';
 import About from '../About/About';
-import Services from '../Services/Services';
 import Slider from '../Slider/Slider';
 
 const Home = () => {
     return (
         <div>
             <Slider></Slider>
-            <Services></Services>
+            <LimitService></LimitService>
             <About></About>
         </div>
     );

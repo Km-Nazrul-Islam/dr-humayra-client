@@ -1,8 +1,11 @@
 import { createBrowserRouter } from "react-router-dom";
-import Checkout from "../../Checkout/Checkout";
+import Details from "../../Details/Details";
 import Main from "../../Layout/Main";
+import Blog from "../../Pages/Blog/Blog";
 import Home from "../../Pages/Home/Home/Home";
+import Services from "../../Pages/Home/Services/Services";
 import Login from "../../Pages/Login/Login";
+import Review from "../../Pages/Review/Review";
 import SignUp from "../../Pages/SignUp/SignUp";
 
 const router = createBrowserRouter([
@@ -23,9 +26,21 @@ const router = createBrowserRouter([
                 element: <SignUp></SignUp>
             },
             {
-                path: '/checkout/:id',
-                element: <Checkout></Checkout>,
+                path: '/Details/:id',
+                element: <Details></Details>,
                 loader: ({params}) => fetch(`https://dr-munni-server-site.vercel.app/services/${params.id}`)
+            },
+            {
+                path: '/services',
+                element: <Services></Services>
+            },
+            {
+                path: '/review',
+                element: <Review></Review>
+            },
+            {
+                path: '/blog',
+                element: <Blog></Blog>
             }
         ]
     }
