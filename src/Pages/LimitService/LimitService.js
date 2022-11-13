@@ -21,13 +21,9 @@ const LimitService = () => {
                 {
                     services.map(service => <div className="border-2 border-amber-400 card w-96 bg-base-100 shadow-xl">
                         <PhotoProvider>
-                            
-                                
-                                    <PhotoView src={service.img}>
+                                <PhotoView src={service.img}>
                                 <figure><img src={service.img} key={services._id} alt="Shoes" /></figure>
-                                    </PhotoView>
-                                
-                            
+                                </PhotoView> 
                         </PhotoProvider>
                         
                         <div className="card-body">
@@ -36,7 +32,7 @@ const LimitService = () => {
                             <p>{service.description.slice(0, 100)}...</p>
                             <div className="card-actions justify-end">
                                 <Link to={`/details/${service._id}`}>
-                                    <button className="btn btn-primary w-72">Details</button>
+                                    <button className="btn btn-primary w-72">See Details</button>
                                 </Link>
                             </div>
                         </div>

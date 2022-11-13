@@ -1,25 +1,67 @@
 import React from 'react';
+// import { useContext } from 'react';
+// import { useLoaderData } from 'react-router-dom';
+// import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 
 const AddService = () => {
+    // const {_id, title, fee, img, description} = useLoaderData();
+    // const {user} = useContext(AuthContext);
+
+
+    const handleAddService = event => {
+        event.preventDefault();
+        const form = event.target;
+        const name = form.name.value;
+        const fee = form.fee.value;
+        const img = form.img.value;
+        const description = form.description.value;
+
+        const service = {
+            title: name,
+            fee: fee,
+            img: img,
+            description: description,
+        }
+        console.log(service);
+
+        fetch('http://localhost:5000/addservice', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(service)
+        })
+            .then(res => res.json())
+            .then(data => console.log(data))
+            .catch(err => console.error(err));
+    }
+
     return (
+
         <div>
-            <form className='p-8' onSubmit={handleAddService}>
-                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8'>
-                    <input name='firstName' type="text" placeholder="Type Your First Name" className="input input-bordered input-md w-full" />
+            {/* <div>
+                <p>{_id}</p>
+                <h2>{title}</h2>
+                <img src={img} alt="" />
+                <h3>{fee}</h3>
+                <p>{description}</p>
+            </div> */}
+            <div>
+                <form onSubmit={handleAddService} className='p-8'>
+                    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8'>
+                        <input name='name' type="text" placeholder="Your Services Name" className="input input-bordered input-md w-full" />
 
-                    <input name='lastName' type="text" placeholder="Type Your Last Name" className="input input-bordered input-md w-full" />
+                        <input name='fee' type="text" placeholder="Service Fee of Coast" className="input input-bordered input-md w-full" required />
 
-                    <input name='phone' type="text" placeholder="Type Your Phone No." className="input input-bordered input-md w-full" required />
+                        <input name='img' type="text" placeholder="Type Image URl Here" className="input input-bordered input-md w-full" />
+                    </div>
+                    <textarea name='description' className="textarea textarea-bordered h-24 w-full my-8" placeholder="Service Description Here"></textarea>
 
-                    <input name='email' type="text" placeholder="Type Your Email Address" defaultValue={user?.email} className="input input-bordered input-md w-full" readOnly />
-                </div>
-                <textarea name='message' className="textarea textarea-bordered h-24 w-full my-8" placeholder="Your Message"></textarea>
-
-                <div className=''>
-                    <input className='btn btn-block mb-4' type="submit" value="Submit" />
-                    <input className='btn btn-block' type="submit" value="Reset" />
-                </div>
-            </form>
+                    <div className=''>
+                        <input className='btn btn-block mb-4' type="submit" value="Add Services" />
+                    </div>
+                </form>
+            </div>
         </div>
     );
 };

@@ -7,25 +7,28 @@ const Details = () => {
     const { _id, title, fee, img, description } = useLoaderData();
     const {user} = useContext(AuthContext)
 
-    const handlePlaceSeriouls = event => {
+    const handlePlaceReview = event => {
         event.preventDefault();
         const form = event.target;
-        const name = `${form.firstName.value} ${form.lastName.value}`;
+        const name = form.name.value;
         const email = user?.email || 'Please Register First';
         const phone = form.phone.value;
         const message = form.message.value;
 
         const review = {
-            service: _id,
+            service_id: _id,
             serviceName: title,
             fee,
+            img,
             patient: name,
             email,
             phone,
             message
         }
 
-        fetch('http://localhost:5000/seriouls', {
+        console.log(review)
+
+        fetch('http://localhost:5000/reviews', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -57,11 +60,9 @@ const Details = () => {
                 </div>
                 <div className='border-2 border-pink-500 rounded-xl my-8'>
                     <h2 className='text-4xl text-red-400 font-bold text-center mt-4'>Please Type Your Review</h2>
-                    <form className='p-8' onSubmit={handlePlaceSeriouls}>
+                    <form className='p-8' onSubmit={handlePlaceReview}>
                         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8'>
-                            <input name='firstName' type="text" placeholder="Type Your First Name" className="input input-bordered input-md w-full" />
-
-                            <input name='lastName' type="text" placeholder="Type Your Last Name" className="input input-bordered input-md w-full" />
+                            <input name='name' type="text" placeholder="Type Your Name" className="input input-bordered input-md w-full" />
 
                             <input name='phone' type="text" placeholder="Type Your Phone No." className="input input-bordered input-md w-full" required />
 

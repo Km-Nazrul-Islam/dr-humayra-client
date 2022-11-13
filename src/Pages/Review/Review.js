@@ -8,6 +8,8 @@ const Review = () => {
     const {user} = useContext(AuthContext);
     console.log(user)
 
+    
+
     useEffect(() => {
         fetch(`http://localhost:5000/reviewsByEmail?email=${user?.email}`)
             .then(res => res.json())
@@ -22,18 +24,17 @@ const Review = () => {
                 <table className="table table-compact w-full">
                     <thead>
                         <tr>
-                            <th></th>
+                            <th>Image</th>
                             <th>Name</th>
-                            <th>Job</th>
-                            <th>company</th>
-                            <th>location</th>
-                            <th>Last Login</th>
-                            <th>Favorite Color</th>
+                            <th>Service</th>
+                            <th>Email</th>
+                            <th>Fee</th>
+                            <th>Review</th>
+                            <th>Delete</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <th>1</th>
                             <td>Cy Ganderton</td>
                             <td>Quality Control Specialist</td>
                             <td>Littel, Schaden and Vandervort</td>
