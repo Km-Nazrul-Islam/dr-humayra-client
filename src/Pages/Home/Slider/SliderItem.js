@@ -9,17 +9,12 @@ const SliderItem = ({slider}) => {
             <div className='slider-img'>
                 <img src={image} alt="" className="w-full rounded-xl" />
             </div>
-            <div className="absolute flex justify-between transform -translate-y-1/2 left-20 md:left-48 right-5 top-1/4 md:top-1/3">
+            <div className="absolute flex justify-between transform -translate-y-1/2 left-10 md:left-48 right-5 top-1/2 md:top-1/3">
                 <h1 className='text-sm md:text-4xl font-bold text-white'>
                     Dr. Mahbuba Humayra <br />
                     Gynecologist at <br />
                     Rajshahi Medical College
                 </h1>
-            </div>
-            <div className="absolute flex justify-between transform -translate-y-1/2 left-20 md:left-48 right-5 top-1/2">
-                <p className='text-sm md:text-2xl font-semibold text-white w-3/2 md:w-2/6'>
-                    My Name Is Mahbuba Humayra. I am 26 Years Old And I Am Gynecologist At Rajshi Medical College
-                </p>
             </div>
             <div className="absolute flex justify-start transform -translate-y-1/2 left-20 md:left-48 right-5 top-3/4">
                 <Link to="/services"><button className="btn btn-primary mr-4">My Services</button></Link>
