@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useContext } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../context/AuthProvider/AuthProvider';
 import swal from 'sweetalert';
 
@@ -52,7 +52,7 @@ const Details = () => {
 
     return (
         <div className='flex justify-between gap-8'>
-            <div className='col-span-8 mt-4'>
+            <div className='col-span-6 mt-4'>
                 <div className='border-2 border-pink-400 p-12 mb-4 rounded-xl'>
                     <div>
                         <h2 className='text-3xl text-red-500 font-bold text-center'>Details About This Service</h2>
@@ -68,64 +68,55 @@ const Details = () => {
                         </div>
                     </div>
                 </div>
-                <div className='border-2 border-pink-500 rounded-xl my-8'>
-                    <h2 className='text-4xl text-red-400 font-bold text-center mt-4'>Please Type Your Review</h2>
-                    <form className='p-8' onSubmit={handlePlaceReview}>
-                        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8'>
-                            <input name='name' type="text" placeholder="Type Your Name" className="input input-bordered input-md w-full" />
+                {
+                    user?
+                        <div className='border-2 border-pink-500 rounded-xl my-8'>
+                            <h2 className='text-4xl text-red-400 font-bold text-center mt-4'>Please Type Your Review</h2>
+                            <form className='p-8' onSubmit={handlePlaceReview}>
+                                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8'>
+                                    <input name='name' type="text" placeholder="Type Your Name" className="input input-bordered input-md w-full" />
 
-                            <input name='phone' type="text" placeholder="Type Your Phone No." className="input input-bordered input-md w-full" required />
+                                    <input name='phone' type="text" placeholder="Type Your Phone No." className="input input-bordered input-md w-full" required />
 
-                            <input name='email' type="text" placeholder="Type Your Email Address" defaultValue={user?.email} className="input input-bordered input-md w-full" readOnly />
+                                    <input name='email' type="text" placeholder="Type Your Email Address" defaultValue={user?.email} className="input input-bordered input-md w-full" readOnly />
 
-                            <input name='photoURL' type="text" placeholder="Type Your Photo URL" className="input input-bordered input-md w-full" />
+                                    <input name='photoURL' type="text" placeholder="Type Your Photo URL" className="input input-bordered input-md w-full" />
+                                </div>
+                                <textarea name='message' className="textarea textarea-bordered h-24 w-full my-8" placeholder="Your Message"></textarea>
+
+                                <div className=''>
+                                    <input className='btn btn-block mb-4' type="submit" value="Submit" />
+                                    <input className='btn btn-block' type="submit" value="Reset" />
+                                </div>
+                            </form>
                         </div>
-                        <textarea name='message' className="textarea textarea-bordered h-24 w-full my-8" placeholder="Your Message"></textarea>
-
-                        <div className=''>
-                            <input className='btn btn-block mb-4' type="submit" value="Submit" />
-                            <input className='btn btn-block' type="submit" value="Reset" />
-                        </div>
-                    </form>
-                </div>
+                    : <div className='bg-blue-600 text-center text-white w-1/2 mx-auto rounded p-10'>
+                        <h2 className='text-2xl font-bold'>Please Login to Add Review</h2>
+                        <button className='btn btn-accent mt-4 px-8'> <Link to="/login">Login</Link> </button>
+                    </div>
+                }
             </div>
 
-            <div className='col-span-4 mt-4'>
+            <div className='col-span-6 mt-4'>
                 <div>
                     <h3 className='text-2xl text-pink-600 font-bold text-center mb-4'>Patient Review This Service: {reviews.length}</h3>
                     <div className="overflow-x-auto">
                         <table className="table w-full">
-                            {/* <!-- head --> */}
                             <thead>
                                 <tr>
-                                    <th></th>
-                                    <th>Patient Name</th>
-                                    <th>Deases Test</th>
-                                    <th>Result</th>
+                                    <th>Avatar</th>
+                                    <th>Name</th>
+                                    <th>Review</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                {/* <!-- row 1 --> */}
-                                <tr>
-                                    <th>1</th>
-                                    <td>Cy Ganderton</td>
-                                    <td>Pelvic Test</td>
-                                    <td>Excelent !!</td>
-                                </tr>
-                                {/* <!-- row 2 --> */}
-                                <tr className="hover">
-                                    <th>2</th>
-                                    <td>Hart Hagerty</td>
-                                    <td>Pap Test</td>
-                                    <td>Good</td>
-                                </tr>
-                                {/* <!-- row 3 --> */}
-                                <tr>
-                                    <th>3</th>
-                                    <td>Brice Swyre</td>
-                                    <td>Pregnancy testing</td>
-                                    <td>100% Qualified</td>
-                                </tr>
+                                {
+                                    reviews.map(review => <tr>
+                                        <td><img className='w-20 h-20 rounded-full' src={review.photoURL} alt="" /></td>
+                                        <td>{review.patient}</td>
+                                        <td>{review.review}</td>
+                                    </tr>)
+                                }
                             </tbody>
                         </table>
                     </div>
