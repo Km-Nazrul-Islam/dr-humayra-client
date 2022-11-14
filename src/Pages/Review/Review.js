@@ -2,20 +2,17 @@ import React, { useState } from 'react';
 import { useContext } from 'react';
 import { useEffect } from 'react';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
+import ReviewTable from './ReviewTable';
 
 const Review = () => {
     const [reviews, setReviews] = useState([]);
     const {user} = useContext(AuthContext);
-    console.log(user)
-
-    
 
     useEffect(() => {
         fetch(`http://localhost:5000/reviewsByEmail?email=${user?.email}`)
             .then(res => res.json())
             .then(data => setReviews(data))
     }, [user?.email])
-    
 
     return (
         <div>
@@ -34,14 +31,12 @@ const Review = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Cy Ganderton</td>
-                            <td>Quality Control Specialist</td>
-                            <td>Littel, Schaden and Vandervort</td>
-                            <td>Canada</td>
-                            <td>12/16/2020</td>
-                            <td>Blue</td>
-                        </tr>
+                        {
+                            reviews.map(review => <ReviewTable
+                                key={review._id}
+                                review={review}
+                            ></ReviewTable>)
+                        }
                         
                     </tbody>
                     

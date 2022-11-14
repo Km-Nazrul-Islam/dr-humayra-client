@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useContext } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../context/AuthProvider/AuthProvider';
+import swal from 'sweetalert';
 
 const Details = () => {
     const { _id, title, fee, img, description } = useLoaderData();
+    const [reviews, setReviews] = useState([]);
     const {user} = useContext(AuthContext)
 
     const handlePlaceReview = event => {
@@ -14,6 +16,7 @@ const Details = () => {
         const email = user?.email || 'Please Register First';
         const phone = form.phone.value;
         const message = form.message.value;
+        const photoURL = form.photoURL.value;
 
         const review = {
             service_id: _id,
@@ -23,7 +26,8 @@ const Details = () => {
             patient: name,
             email,
             phone,
-            message
+            review: message,
+            photoURL
         }
 
         console.log(review)
@@ -36,9 +40,15 @@ const Details = () => {
             body: JSON.stringify(review)
         })
         .then(res => res.json())
-        .then(data => console.log(data))
+            .then( ()=> swal("Good job!", "Review Added Successfully!", "success"))
         .catch(err => console.error(err));
     }
+
+    useEffect(() => {
+        fetch(`http://localhost:5000/reviewsById?id=${_id}`)
+            .then(res => res.json())
+            .then(data => setReviews(data))
+    }, [_id])
 
     return (
         <div className='flex justify-between gap-8'>
@@ -67,6 +77,8 @@ const Details = () => {
                             <input name='phone' type="text" placeholder="Type Your Phone No." className="input input-bordered input-md w-full" required />
 
                             <input name='email' type="text" placeholder="Type Your Email Address" defaultValue={user?.email} className="input input-bordered input-md w-full" readOnly />
+
+                            <input name='photoURL' type="text" placeholder="Type Your Photo URL" className="input input-bordered input-md w-full" />
                         </div>
                         <textarea name='message' className="textarea textarea-bordered h-24 w-full my-8" placeholder="Your Message"></textarea>
 
@@ -80,7 +92,7 @@ const Details = () => {
 
             <div className='col-span-4 mt-4'>
                 <div>
-                    <h3 className='text-4xl text-pink-600 font-bold text-center mb-4'>Patient Review This Service</h3>
+                    <h3 className='text-2xl text-pink-600 font-bold text-center mb-4'>Patient Review This Service: {reviews.length}</h3>
                     <div className="overflow-x-auto">
                         <table className="table w-full">
                             {/* <!-- head --> */}
