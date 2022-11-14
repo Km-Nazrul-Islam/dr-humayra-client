@@ -32,7 +32,7 @@ const Details = () => {
 
         console.log(review)
 
-        fetch('http://localhost:5000/reviews', {
+        fetch('https://dr-munni-server-site.vercel.app/reviews', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -45,7 +45,7 @@ const Details = () => {
     }
 
     useEffect(() => {
-        fetch(`http://localhost:5000/reviewsById?id=${_id}`)
+        fetch(`https://dr-munni-server-site.vercel.app/reviewsById?id=${_id}`)
             .then(res => res.json())
             .then(data => setReviews(data))
     }, [_id])

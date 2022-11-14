@@ -9,7 +9,7 @@ const Review = () => {
     const {user} = useContext(AuthContext);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/reviewsByEmail?email=${user?.email}`)
+        fetch(`https://dr-munni-server-site.vercel.app/reviewsByEmail?email=${user?.email}`)
             .then(res => res.json())
             .then(data => setReviews(data))
     }, [user?.email])

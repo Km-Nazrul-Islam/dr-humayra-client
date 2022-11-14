@@ -24,7 +24,7 @@ const AddService = () => {
         }
         console.log(service);
 
-        fetch('http://localhost:5000/addservice', {
+        fetch('https://dr-munni-server-site.vercel.app/addservice', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
