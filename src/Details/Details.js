@@ -55,7 +55,7 @@ const Details = () => {
             <div className='col-span-6 mt-4'>
                 <div className='border-2 border-pink-400 p-12 mb-4 rounded-xl'>
                     <div>
-                        <h2 className='text-3xl text-red-500 font-bold text-center'>Details About This Service</h2>
+                        <h2 className='text-3xl text-red-500 font-bold text-center mb-8'>Details About This Service</h2>
                     </div>
                     <div className='text-2xl font-semibold mb-8'>
                         <div className='flex justify-evenly text-2xl font-semibold mb-8'>
