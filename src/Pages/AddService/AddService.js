@@ -1,11 +1,6 @@
 import React from 'react';
-// import { useContext } from 'react';
-// import { useLoaderData } from 'react-router-dom';
-// import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 
 const AddService = () => {
-    // const {_id, title, fee, img, description} = useLoaderData();
-    // const {user} = useContext(AuthContext);
 
 
     const handleAddService = event => {
@@ -34,18 +29,12 @@ const AddService = () => {
             .then(res => res.json())
             .then(data => console.log(data))
             .catch(err => console.error(err));
+            form.reset();
     }
 
     return (
 
         <div>
-            {/* <div>
-                <p>{_id}</p>
-                <h2>{title}</h2>
-                <img src={img} alt="" />
-                <h3>{fee}</h3>
-                <p>{description}</p>
-            </div> */}
             <div>
                 <form onSubmit={handleAddService} className='p-8'>
                     <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8'>

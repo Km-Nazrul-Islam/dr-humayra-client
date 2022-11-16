@@ -41,6 +41,7 @@ const Details = () => {
         })
         .then(res => res.json())
             .then( ()=> swal("Good job!", "Review Added Successfully!", "success"))
+            form.reset()
         .catch(err => console.error(err));
     }
 
@@ -70,7 +71,7 @@ const Details = () => {
                 </div>
                 {
                     user?
-                        <div className='border-2 border-pink-500 rounded-xl my-8'>
+                        <div className='border-2 border-red-400 rounded-xl my-8'>
                             <h2 className='text-4xl text-red-400 font-bold text-center mt-4'>Please Type Your Review</h2>
                             <form className='p-8' onSubmit={handlePlaceReview}>
                                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8'>
@@ -85,8 +86,7 @@ const Details = () => {
                                 <textarea name='message' className="textarea textarea-bordered h-24 w-full my-8" placeholder="Your Message"></textarea>
 
                                 <div className=''>
-                                    <input className='btn btn-block mb-4' type="submit" value="Submit" />
-                                    <input className='btn btn-block' type="submit" value="Reset" />
+                                    <input className='btn btn-block bg-red-400 hover:bg-red-700 border-0 mb-4' type="submit" value="Add Your Review" />
                                 </div>
                             </form>
                         </div>
